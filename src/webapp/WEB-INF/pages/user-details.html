@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Form</title>
+</head>
+<body>
+
+<h2>New User</h2>
+
+<form th:action="@{/users}" th:object="${user}" method="post">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" th:field="*{name}" id="name" required />
+  </div>
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" th:field="*{username}" id="username"  required />
+  </div>
+  <div>
+    <button type="submit">Save</button>
+  </div>
+</form>
+
+</body>
+</html>
