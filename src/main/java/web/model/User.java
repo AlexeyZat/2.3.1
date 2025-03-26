@@ -1,4 +1,4 @@
-package web.Model;
+package web.model;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -16,15 +16,15 @@ public class User {
     @Column
     private String username;
 
+    public User() {
+
+    }
+
 
     public User(String username, String name) {
 
         this.username = username;
         this.name = name;
-
-    }
-
-    public User() {
 
     }
 
