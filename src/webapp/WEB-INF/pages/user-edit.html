@@ -8,11 +8,8 @@
 <body>
 
 <h2>New User</h2>
-<form th:action="@{/users}" th:object="${user}" method="post">
+<form th:action="@{/users/update}" th:object="${user}" method="post">
   <input type="hidden" th:field="*{id}" />
-  <div>
-  <input type="hidden" th:field="*{id}" id="id" />
-  </div>
   <div>
     <label for="name">Name:</label>
     <input type="text" th:field="*{name}" id="name" required />

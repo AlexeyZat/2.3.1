@@ -21,7 +21,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void saveUser(User user) {
-        entityManager.merge(user);
+        entityManager.persist(user);
     }
 
     @Override
@@ -39,6 +39,10 @@ public class UserDaoImpl implements UserDao {
         }
         entityManager.merge(user);
     }
+    @Override
+    public User getUserById(int id) {
+        return entityManager.find(User.class, id);
+    }
 
 }
- // если использовать persist() выдает ошибку при изменении, поэтому исправил на merge()
+     // если использовать persist() выдает ошибку при изменении, поэтому исправил на merge()

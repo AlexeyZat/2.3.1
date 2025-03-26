@@ -26,7 +26,7 @@ public class UserController {
 
     @GetMapping("/new")
     public String newUserForm(Model model) {
-        model.addAttribute("user", new User());
+            model.addAttribute("user", new User());
         return "user-details";
     }
 
@@ -37,17 +37,9 @@ public class UserController {
     }
 
     @GetMapping("/edit")
-    public String editUserForm(@RequestParam("id") int id, Model model) {
-        User user = userService.getAllUsers()
-                .stream()
-                .filter(u -> u.getId() == id)
-                .findFirst()
-                .orElse(null);
-        if (user != null) {
-            model.addAttribute("user", user);
-            return "user-edit";
-        }
-        return "redirect:/users";
+    public String getUserById(@RequestParam("id") int id, Model model) {
+        model.addAttribute("user", userService.getUserById(id));
+        return "user-edit";
     }
 
     @PostMapping("/update")
@@ -62,5 +54,5 @@ public class UserController {
         return "redirect:/users";
     }
 }
-// тут вроде нет бизнес логики, у меня принимает запросы  и передает их в UserService
+
 
